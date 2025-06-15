@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 18:20:31 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/15 18:20:31 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/15 21:39:22 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/15 21:39:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <string.h>
-
-void	*ft_memset(void *s, int c, size_t n);
-void	*ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
-void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t	ft_strlen(const char *s);
 
-#endif
+size_t	ft_strlen(const char *s)
+{
+	int	len;
+
+	len = 0;
+	while (s[len])
+	{
+		len++;
+	}
+	return (len);
+}
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	printf("%ld",ft_strlen("abc"));
+// 	return (0);
+// }
