@@ -1,49 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 21:28:54 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/15 21:28:54 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/15 21:46:21 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/15 21:46:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strdup(const char *s);
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strdup(const char *s)
 {
-	unsigned const char	*new_s1;
-	unsigned const char	*new_s2;
-	size_t				i;
+	char	*new;
+	int		i;
+	size_t	size;
 
-	i = 0;
-	new_s1 = s1;
-	new_s2 = s2;
-	if (n == 0)
+	size = ft_strlen(s) + 1;
+	new = (char *) malloc(sizeof(char) * (size));
+	if (!new)
 	{
-		return (0);
+		return (NULL);
 	}
-	while (i < (n - 1))
+	i = 0;
+	while (s[i])
 	{
-		if (new_s1[i] != new_s2[i])
-		{
-			return (new_s1[i] - new_s2[i]);
-		}
+		new[i] = s[i];
 		i++;
 	}
-	return (new_s1[i] - new_s2[i]);
+	new[i] = '\0';
+	return (new);
 }
 
 // #include <stdio.h>
 
 // int	main(void)
 // {
-// 	char	s1[] = {-128, 0, 1};
-// 	char	s2[] = {0, 0, 127};
-// 	printf("%d\n", ft_memcmp(s1, s2, 1));
+// 	char	test[]="abcdef";
+// 	char	*dup;
+// 	dup = ft_strdup(test);
+// 	printf("%s\n",dup);
+// 	free(dup);
 // 	return (0);
 // }
