@@ -1,26 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 18:20:31 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/15 18:20:31 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/15 21:09:27 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/15 21:09:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <string.h>
-
-void	*ft_memset(void *s, int c, size_t n);
-void	*ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
-#endif
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned const char	*new_s;
+	unsigned char		new_c;
+	size_t				i;
+
+	i = 0;
+	new_c = c;
+	new_s = s;
+	while (i < n)
+	{
+		if (new_s[i] == new_c)
+		{
+			return ((void *) &new_s[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	printf("%s", (char *) ft_memchr("abcdef",'c',3));
+// 	return (0);
+// }
