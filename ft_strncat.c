@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 22:13:59 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/15 22:13:59 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/15 23:34:55 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/15 23:34:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src);
-// char	*ft_strcpy(char *restrict dst, const char *restrict src);
+char	*ft_strncat(char *dst, const char *src, size_t ssize);
 
-// char	*ft_strcpy(char *restrict dst, const char *restrict src)
-char	*ft_strcpy(char *dst, const char *src)
+char	*ft_strncat(char *dst, const char *src, size_t ssize)
 {
 	size_t	i;
+	size_t	j;
 
-	i = 0;
-	while (src[i])
+	if (ssize == 0)
 	{
-		dst[i] = src[i];
+		return (dst);
+	}
+	i = 0;
+	while (dst[i])
+	{
+		i++;
+	}
+	j = 0;
+	while (src[j] && j < ssize)
+	{
+		dst[i] = src[j];
+		j++;
 		i++;
 	}
 	dst[i] = '\0';
@@ -34,9 +43,9 @@ char	*ft_strcpy(char *dst, const char *src)
 
 // int	main(void)
 // {
-// 	char	dst[40];
-// 	char	src[] = "hello";
-// 	ft_strcpy(dst, src);
-// 	printf("%s",dst);
+// 	char	dst[50] = "abc";
+// 	char	src[] = "def";
+// 	ft_strncat(dst, src, 3);
+// 	printf("%s", dst);
 // 	return (0);
 // }
