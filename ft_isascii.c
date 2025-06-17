@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 17:37:08 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/17 17:37:08 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/17 17:50:45 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/17 17:50:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c);
+int	ft_isascii(int c);
 
-int	ft_isdigit(int c)
+int	ft_isascii(int c)
 {
-	if (c >= '0' && c <= '9')
+	if (c >= 0 && c <= 127)
 	{
-		return (2048);
+		return (1);
 	}
 	return (0);
 }
@@ -28,7 +28,7 @@ int	ft_isdigit(int c)
 
 // int	main(void)
 // {
-// 	printf("real %d\n", isdigit('9'));
-// 	printf("fake %d\n", ft_isdigit('9'));
+// 	printf("real %d\n", isascii(256));
+// 	printf("fake %d\n", ft_isascii(256));
 // 	return (0);
 // }
