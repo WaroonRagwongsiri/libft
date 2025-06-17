@@ -20,22 +20,16 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (big[0] == '\0')
-		return ((char *) little);
-	while (little[i] && i < len)
+	if (little[0] == '\0')
+		return ((char *) big);
+	while (big[i] && i < len)
 	{
 		j = 0;
-		if (little[i] == big[j])
+		while (big[i + j] != '\0' && big[i + j] == little[j] && (i + j) < len)
 		{
-			while (big[j] == little[i + j] && big[j] != '\0'
-				&& (i + j) < len && little[i + j] != '\0')
-			{
-				j++;
-			}
-			if (big[j] == '\0')
-			{
-				return ((char *) &little[i]);
-			}
+			if (little[j + 1] == '\0')
+				return ((char *) &big[i]);
+			j++;
 		}
 		i++;
 	}
@@ -46,6 +40,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 // int	main(void)
 // {
-// 	printf("%s\n", ft_strnstr("abcdedef", "def", 8));
+// 	char	big[30] = "aaabcabcd";
+// 	// char	little[10] = "aabc";
+// 	// char	*empty = (char*)"";
+// 	printf("%s\n", ft_strnstr(big, "c", 50));
 // 	return (0);
 // }
