@@ -1,48 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 13:20:22 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/16 13:20:22 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/17 17:28:00 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/17 17:28:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr);
+int	ft_isalpha(int c);
 
-int	ft_atoi(const char *nptr)
+int	ft_isalpha(int c)
 {
-	int	ans;
-	int	i;
-	int	neg;
+	unsigned char	new_c;
 
-	i = 0;
-	ans = 0;
-	neg = 1;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	new_c = c;
+	if ((new_c >= 'A' && new_c <= 'Z')
+		|| (new_c >= 'a' && new_c <= 'z'))
 	{
-		if (nptr[i] == '-')
-			neg *= -1;
-		i++;
+		return (1024);
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		ans = ans * 10 + nptr[i] - '0';
-		i++;
-	}
-	return (ans * neg);
+	return (0);
 }
 
 // #include <stdio.h>
+// #include <ctype.h>
 
 // int	main(void)
 // {
-// 	printf("real : %d\n", atoi("    123   1a"));
-// 	printf("fake : %d\n", ft_atoi("       123  1a"));
+// 	printf("real %d\n", isalpha('z'));
+// 	printf("fake %d\n", ft_isalpha('z'));
+// 	return (0);
 // }
