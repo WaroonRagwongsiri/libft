@@ -11,22 +11,27 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdint.h>
 
-void	*ft_memalloc(size_t size);
+void	*ft_calloc(size_t nmemb, size_t size);
 
-void	*ft_memalloc(size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	unsigned char	*new_ptr;
 	size_t			i;
 
 	i = 0;
 	new_ptr = NULL;
-	new_ptr = malloc(size);
-	if (new_ptr == NULL)
-	{
+	if (nmemb == 0 || size == 0)
+		return (malloc(1));
+	if ((nmemb * size) > 2147483647
+		|| nmemb > 2147483647
+		|| size > 2147483647)
 		return (NULL);
-	}
-	while (i < size)
+	new_ptr = malloc(nmemb * size);
+	if (new_ptr == NULL)
+		return (NULL);
+	while (i < (size * nmemb))
 	{
 		new_ptr[i] = 0;
 		i++;
@@ -36,14 +41,16 @@ void	*ft_memalloc(size_t size)
 
 // #include <stdio.h>
 
-// int	main()
+// int	main(void)
 // {
-// 	int	*arr;
-// 	arr = ft_memalloc(sizeof(int) * 4);
-// 	for (size_t i = 0; i < 4; i++)
-// 	{
-// 		printf("%ld : %d\n", i, arr[i]);
-// 	}
-// 	free(arr);
+// 	// int	*arr;
+// 	unsigned long long n = -5;
+// 	printf("%llu", (n));
+// 	// arr = ft_calloc(0, -5);
+// 	// for (size_t i = 0; i < 4; i++)
+// 	// {
+// 	// 	printf("%ld : %d\n", i, arr[i]);
+// 	// }
+// 	// free(arr);
 // 	return (0);
 // }
