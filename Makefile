@@ -23,6 +23,7 @@ SRCS := 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_calloc.c ft_strdup.c \
 			ft_substr.c ft_strjoin.c \
 			ft_strtrim.c ft_split.c ft_itoa.c \
+			ft_strmapi.c \
 
 OBJS :=		$(SRCS:%.c=%.o)
 # INC_DIR := includes/
