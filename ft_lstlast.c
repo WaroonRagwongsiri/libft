@@ -1,53 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 15:14:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/06/19 15:14:21 by marvin           ###   ########.fr       */
+/*   Created: 2025/06/19 15:24:54 by marvin            #+#    #+#             */
+/*   Updated: 2025/06/19 15:24:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int		len;
 	t_list	*current;
 
-	len = 0;
 	current = lst;
-	while (current != NULL)
+	if (current == NULL)
 	{
-		len++;
+		return (NULL);
+	}
+	while (current->next != NULL)
+	{
 		current = current->next;
 	}
-	return (len);
+	return (current);
 }
 
 // #include <stdio.h>
 
 // int	main(void)
 // {
-// 	t_list	**head;
-// 	t_list	*n1;
-// 	t_list	*n2;
-// 	t_list	*n3;
-// 	t_list	*n4;
+// 	t_list	*l1;
+// 	t_list	*l2;
 
-// 	head = NULL;
-// 	n1 = ft_lstnew("abc");
-// 	n2 = ft_lstnew("def");
-// 	n3 = ft_lstnew("ghi");
-// 	n4 = ft_lstnew("jkl");
-// 	head = &n4;
-// 	ft_lstadd_front(head, n3);
-// 	ft_lstadd_front(head, n2);
-// 	ft_lstadd_front(head, n1);
-// 	printf("len : %d\n", ft_lstsize(*head));
+// 	l1 = NULL;
+// 	l2 = NULL;
+// 	ft_lstadd_back(&l1, ft_lstnew((void *) 1));
+// 	ft_lstadd_back(&l1, ft_lstnew((void *) 2));
+// 	ft_lstadd_back(&l2, ft_lstnew((void *) 3));
+// 	ft_lstadd_back(&l2, ft_lstnew((void *) 4));
+// 	ft_lstadd_back(&l1, l2);
+// 	printf("%p\n", l1->next->next->next->content);
 // 	return (0);
 // }
