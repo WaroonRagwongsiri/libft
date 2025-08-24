@@ -26,11 +26,11 @@ char	**ft_split(char const *s, char c)
 		new[0] = NULL;
 		return (new);
 	}
-	wc = count_word(s, c);
+	wc = count_word_split(s, c);
 	new = malloc(sizeof(char *) * (wc + 1));
 	if (!new)
 		return (NULL);
-	if (process(s, c, new, 0) == NULL)
+	if (process_split(s, c, new, 0) == NULL)
 	{
 		new[wc] = NULL;
 		return (NULL);
@@ -39,7 +39,7 @@ char	**ft_split(char const *s, char c)
 	return (new);
 }
 
-size_t	count_word(char const *s, char c)
+size_t	count_word_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	word;
@@ -75,7 +75,7 @@ void	*free_arr(char **arr)
 	return (NULL);
 }
 
-char	**process(char const *s, char c, char **new, size_t i)
+char	**process_split(char const *s, char c, char **new, size_t i)
 {
 	size_t	index_sep;
 	size_t	last_index_sep;
@@ -96,7 +96,7 @@ char	**process(char const *s, char c, char **new, size_t i)
 				new[new_count] = malloc(index_sep - last_index_sep + 1);
 				if (!new[new_count])
 					return (free_arr(new));
-				inner_loop(s, last_index_sep, index_sep, new[new_count++]);
+				inner_loop_split(s, last_index_sep, index_sep, new[new_count++]);
 			}
 		}
 		i++;
@@ -104,7 +104,7 @@ char	**process(char const *s, char c, char **new, size_t i)
 	return (new);
 }
 
-void	inner_loop(char const *s, size_t last_index_sep
+void	inner_loop_split(char const *s, size_t last_index_sep
 			, size_t index_sep, char *new)
 {
 	size_t	j;

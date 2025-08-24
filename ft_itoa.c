@@ -36,11 +36,11 @@ char	*ft_itoa(int n)
 	if (!new)
 		return (NULL);
 	new[0] = '\0';
-	process(new, n);
+	process_itoa(new, n);
 	return (new);
 }
 
-void	process(char *str, long n)
+void	process_itoa(char *str, long n)
 {
 	long	nbr;
 
@@ -52,8 +52,8 @@ void	process(char *str, long n)
 	}
 	if (nbr > 9)
 	{
-		process(str, nbr / 10);
-		process(str, nbr % 10);
+		process_itoa(str, nbr / 10);
+		process_itoa(str, nbr % 10);
 	}
 	else
 	{

@@ -20,7 +20,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (set == NULL || s1 == NULL)
 		return (NULL);
-	word = count_word(s1, set);
+	word = count_word_trim(s1, set);
 	new = malloc(word + 1);
 	if (!new)
 		return (NULL);
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (new);
 }
 
-size_t	count_word(char const *s1, char const *set)
+size_t	count_word_trim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	word;
