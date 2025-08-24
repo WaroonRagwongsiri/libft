@@ -26,7 +26,7 @@ BONUS_OBJS		:=	$(BONUS:%.c=%.o)
 
 all				:	$(NAME)
 
-$(NAME)			:	$(OBJS) Makefile
+$(NAME)			:	$(OBJS) Makefile libft.h
 	ar rcs -o $@ $^
 
 $(OBJS)			:	%.o : %.c

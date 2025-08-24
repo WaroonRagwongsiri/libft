@@ -13,13 +13,6 @@
 #include "libft.h"
 #include <stdio.h>
 
-char	**ft_split(char const *s, char c);
-size_t	count_word(char const *s, char c);
-void	*free_arr(char **arr);
-char	**process(char const *s, char c, char **new, size_t i);
-void	inner_loop(char const *s, size_t last_index_sep,
-			size_t index_sep, char *new);
-
 char	**ft_split(char const *s, char c)
 {
 	char	**new;

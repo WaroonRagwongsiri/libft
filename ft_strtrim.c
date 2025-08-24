@@ -12,10 +12,6 @@
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set);
-
-size_t	count_word(char const *s1, char const *set);
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*new;

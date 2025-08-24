@@ -12,11 +12,6 @@
 
 #include "libft.h"
 
-char	*ft_itoa(int n);
-void	process(char *str, long n);
-void	ft_strcat_chr(char *str, char c);
-char	*iszero(void);
-
 char	*ft_itoa(int n)
 {
 	char	*new;
