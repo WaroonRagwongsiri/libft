@@ -18,6 +18,8 @@ void	*ft_memset(void *s, int c, size_t n)
 	unsigned char	*new;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	new = s;
 	while (i < n)
 	{
