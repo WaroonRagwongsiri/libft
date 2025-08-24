@@ -18,6 +18,8 @@ char	**ft_split(char const *s, char c)
 	char	**new;
 	size_t	wc;
 
+	if (!s)
+		return (NULL);
 	if (s[0] == '\0')
 	{
 		new = malloc(sizeof(char *) * 1);
@@ -49,13 +51,9 @@ size_t	count_word_split(char const *s, char c)
 	while (s[i])
 	{
 		if (s[i] != c && i == 0)
-		{
 			word++;
-		}
 		else if (s[i] != c && s[i - 1] == c)
-		{
 			word++;
-		}
 		i++;
 	}
 	return (word);

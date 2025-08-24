@@ -67,9 +67,7 @@ void	ft_strcat_chr(char *str, char c)
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
 	str[i] = c;
 	i++;
 	str[i] = '\0';
@@ -81,9 +79,7 @@ char	*iszero(void)
 
 	new = malloc(2);
 	if (!new)
-	{
 		return (NULL);
-	}
 	new[0] = '0';
 	new[1] = '\0';
 	return (new);

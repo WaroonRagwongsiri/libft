@@ -18,6 +18,8 @@ char	*ft_strchr(const char *s, int c)
 	char	new_c;
 	size_t	len;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	len = ft_strlen(s);
 	new_c = c;
