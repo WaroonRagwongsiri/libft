@@ -8,3 +8,4 @@ a.out
 en.subject (1).pdf
 test*.c
 *.gch
+malloc_strike.c
