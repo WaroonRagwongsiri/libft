@@ -32,7 +32,7 @@ char	**ft_split(char const *s, char c)
 	new = malloc(sizeof(char *) * (wc + 1));
 	if (!new)
 		return (NULL);
-	if (process_split(s, c, new, 0) == NULL)
+	if (process_split(s, c, new, -1) == NULL)
 	{
 		new[wc] = NULL;
 		return (NULL);
@@ -80,7 +80,7 @@ char	**process_split(char const *s, char c, char **new, size_t i)
 	size_t	new_count;
 
 	new_count = 0;
-	while (i <= ft_strlen(s))
+	while (++i <= ft_strlen(s))
 	{
 		if (s[i] != c && i == 0)
 			last_index_sep = i;
@@ -94,10 +94,10 @@ char	**process_split(char const *s, char c, char **new, size_t i)
 				new[new_count] = malloc(index_sep - last_index_sep + 1);
 				if (!new[new_count])
 					return (free_arr(new));
-				inner_loop_split(s, last_index_sep, index_sep, new[new_count++]);
+				inner_loop_split(s, last_index_sep, index_sep,
+					new[new_count++]);
 			}
 		}
-		i++;
 	}
 	return (new);
 }

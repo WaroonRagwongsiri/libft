@@ -48,8 +48,8 @@ char	**ft_split(char const *s, char c);
 size_t	count_word_split(char const *s, char c);
 void	*free_arr(char **arr);
 char	**process_split(char const *s, char c, char **new, size_t i);
-void	inner_loop_split(char const *s, size_t last_index_sep
-	, size_t index_sep, char *new);
+void	inner_loop_split(char const *s, size_t last_index_sep,
+			size_t index_sep, char *new);
 char	*ft_itoa(int n);
 char	*iszero(void);
 void	process_itoa(char *str, long n);
