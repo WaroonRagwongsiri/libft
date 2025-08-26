@@ -1,6 +1,6 @@
-.gitignore
 .vscode
 libftTester
+Tester
 a.out
 *.o
 *.a
