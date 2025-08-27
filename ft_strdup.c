@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s)
 	if (!s)
 		return (NULL);
 	size = ft_strlen(s) + 1;
-	new = (char *) malloc(sizeof(char) * (size));
+	new = ft_calloc(size, sizeof(char));
 	if (!new)
 		return (NULL);
 	i = 0;

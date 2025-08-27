@@ -22,13 +22,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start > ft_strlen(s))
 	{
-		new = malloc(1);
+		new = ft_calloc(1, sizeof(char));
 		new[0] = '\0';
 		return (new);
 	}
 	if (start + len > ft_strlen(s))
 		len = ft_strlen(s) - start;
-	new = malloc(sizeof(char) * (len + 1));
+	new = ft_calloc((len + 1), sizeof(char));
 	if (new == NULL)
 		return (NULL);
 	i = 0;
