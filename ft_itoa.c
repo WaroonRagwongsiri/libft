@@ -32,10 +32,9 @@ char	*ft_itoa(int n)
 		nbr /= 10;
 		len++;
 	}
-	new = malloc(len);
+	new = ft_calloc(len, sizeof(char));
 	if (!new)
 		return (NULL);
-	new[0] = '\0';
 	process_itoa(new, n);
 	return (new);
 }
