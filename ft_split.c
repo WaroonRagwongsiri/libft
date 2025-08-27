@@ -22,21 +22,18 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	if (s[0] == '\0')
 	{
-		new = malloc(sizeof(char *) * 1);
+		new = ft_calloc(1, sizeof(char *));
 		if (!new)
 			return (NULL);
 		new[0] = NULL;
 		return (new);
 	}
 	wc = count_word_split(s, c);
-	new = malloc(sizeof(char *) * (wc + 1));
+	new = ft_calloc((wc + 1), sizeof(char *));
 	if (!new)
 		return (NULL);
 	if (process_split(s, c, new, -1) == NULL)
-	{
-		new[wc] = NULL;
 		return (NULL);
-	}
 	new[wc] = NULL;
 	return (new);
 }
@@ -91,7 +88,7 @@ char	**process_split(char const *s, char c, char **new, size_t i)
 			if ((s[i] == c || i == ft_strlen(s)) && s[i - 1] != c)
 			{
 				index_sep = i;
-				new[new_count] = malloc(index_sep - last_index_sep + 1);
+				new[new_count] = ft_calloc(index_sep - last_index_sep + 1, 1);
 				if (!new[new_count])
 					return (free_arr(new));
 				inner_loop_split(s, last_index_sep, index_sep,
