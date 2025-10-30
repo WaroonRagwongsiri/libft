@@ -1,7 +1,7 @@
 NAME			:=	libft.a
 
 CC				:=	cc
-CFLAG			:=	-Wall -Wextra -Werror -g3
+CFLAGS			:=	-Wall -Wextra -Werror -g3
 
 SRCS_DIR		:=	srcs/
 INC_DIR			:=	includes/
@@ -22,7 +22,7 @@ SRCS_FILES		:=	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 					ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 					ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
 					ft_lstiter.c ft_lstmap.c \
-					ft_atoi_base.c \
+					ft_atoi_base.c garbage.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
@@ -30,16 +30,16 @@ OBJS			:=	$(SRCS:%.c=%.o)
 all				:	$(NAME)
 
 $(NAME)			:	$(OBJS) Makefile
-	@ar rcs -o $@ $^
+	ar rcs -o $@ $^
 
 $(OBJS)			:	%.o : %.c
-	@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 
 clean			:
-	@rm -rf $(OBJS) $(BONUS_OBJS)
+	rm -rf $(OBJS) $(BONUS_OBJS)
 
 fclean			:	clean
-	@rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re				:	fclean all
 

@@ -22,9 +22,9 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	new_ptr = NULL;
 	if (nmemb == 0 || size == 0)
 		return (malloc(1));
-	if ((nmemb * size) > 2147483647
-		|| nmemb > 2147483647
-		|| size > 2147483647)
+	if ((nmemb * size) > INT_MAX
+		|| nmemb > INT_MAX
+		|| size > INT_MAX)
 		return (NULL);
 	new_ptr = malloc(nmemb * size);
 	if (new_ptr == NULL)

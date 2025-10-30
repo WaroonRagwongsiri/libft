@@ -16,6 +16,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -65,6 +66,7 @@ void	ft_putnbr_fd(int n, int fd);
 int		ft_atoi_base(char *str, char *base);
 int		has_duplicates(char *str);
 int		loop_atoi_base(char *base, char *str, int j);
+void	*ft_safe_calloc(size_t nmemb, size_t size, char *cmd);
 
 typedef struct s_list
 {
