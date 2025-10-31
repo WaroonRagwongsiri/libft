@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:09:54 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/31 13:17:36 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/31 13:18:46 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_safe_calloc(size_t nmemb, size_t size, char *cmd)
 	t_list			*new;
 	void			*ptr;
 
-	if (cmd == "free")
+	if (cmd == NULL)
 	{
 		ft_lstclear(&mem_lst, free);
 		return (NULL);
